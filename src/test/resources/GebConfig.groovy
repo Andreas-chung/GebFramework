@@ -1,11 +1,10 @@
-import org.openqa.selenium.firefox.FirefoxDriver
+import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.remote.DesiredCapabilities
+import org.openqa.selenium.remote.RemoteWebDriver
 
-environments {
-    'firefox' {
-        baseUrl = "http://www.ebay.co.uk"
-        driver = { new FirefoxDriver() }
-    }
-    reportsDir = new File("target/geb-reports")
-    reportOnTestFailureOnly = true
-}
 
+baseUrl = "http://www.ebay.co.uk"
+driver = { new ChromeDriver() }
+
+reportsDir = new File("target/geb-reports")
+reportOnTestFailureOnly = true

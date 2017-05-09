@@ -1,6 +1,5 @@
 package specs
 
-import geb.spock.GebReportingSpec
 import pages.HomePage
 
 class SearchSpec extends BaseSpec {
@@ -10,12 +9,11 @@ class SearchSpec extends BaseSpec {
         given: "Bob is at the ebay website"
         to HomePage
 
-        and: "bob is not logged in"
+        when: "bob is not logged in"
+        header.getWelcomeMessage() == "Welcome."
 
-
-
-
-
+        then: "header"
+        header.getWelcomeMessage() == "Welcome."
 
     }
 

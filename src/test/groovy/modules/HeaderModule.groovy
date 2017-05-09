@@ -8,4 +8,8 @@ class HeaderModule extends BaseModule {
         welcomeMessage(wait:true) { $(By.id('gh-ug')) }
     }
 
+    String getWelcomeMessage() {
+        welcomeMessage.value()
+    }
+
 }
