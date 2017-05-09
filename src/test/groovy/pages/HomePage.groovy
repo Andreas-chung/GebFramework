@@ -2,15 +2,21 @@ package pages
 
 import geb.Page
 import modules.HeaderModule
+import modules.SearchBoxModule
 
 class HomePage extends Page {
 
-    static url = "/test"
-    static at = {title == "Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay" }
+    static url = ""
+    static at = {
+        title.contains("Electronics, Cars, Fashion, Collectibles, Coupons and More | eBay")
+    }
 
     static content = {
         header { module HeaderModule }
+        searchBox { module SearchBoxModule }
     }
+
+
 
 
 }
