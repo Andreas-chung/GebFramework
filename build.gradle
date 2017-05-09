@@ -1,0 +1,33 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext.groovyVersion = '2.3.11'
+ext.gebSpockVersion = '1.1.1'
+ext.spockCoreVersion = '1.1-groovy-2.4'
+ext.junitVersion = '4.11'
+ext.seleniumSupportVersion = '3.4.0'
+ext.seleniumFirefoxVersion = '3.4.0'
+
+dependencies {
+    compile("org.codehaus.groovy:groovy-all:${groovyVersion}")
+
+    testCompile("org.gebish:geb-spock:${gebSpockVersion}")
+//    testCompile "org.gebish:geb-spock:1.1.1"
+
+    testCompile("org.spockframework:spock-core:${spockCoreVersion}")
+    //compile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+
+    testCompile("junit:junit:${junitVersion}")
+//    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile("org.seleniumhq.selenium:selenium-support:${seleniumSupportVersion}")
+    compile("org.seleniumhq.selenium:selenium-firefox-driver:${seleniumFirefoxVersion}")
+
+}
