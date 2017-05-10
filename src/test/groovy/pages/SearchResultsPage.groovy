@@ -1,18 +1,20 @@
 package pages
 
 import geb.Page
+import modules.SearchBoxModule
 import modules.SearchResultsBarModule
 
 
-class SearchResultsPage extends Page {
+class SearchResultsPage extends BasePage {
 
-    static url = '/sch/i.html'
+    static url = ''
 
-    static at = { title.contains("eBay")
+    static at = { title.contains("Amazon.co.uk:")
     }
 
     static content = {
-        searchResultsBar { module SearchResultsBarModule}
+        searchBox { module SearchBoxModule }
+        searchResultsBar { module SearchResultsBarModule }
     }
 
 }

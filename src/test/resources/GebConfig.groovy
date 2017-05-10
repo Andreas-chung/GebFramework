@@ -3,7 +3,7 @@ import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
 
 
-baseUrl = "http://www.ebay.co.uk"
+baseUrl = "http://www.amazon.co.uk"
 driver = { new ChromeDriver() }
 
 reportsDir = new File("target/geb-reports")

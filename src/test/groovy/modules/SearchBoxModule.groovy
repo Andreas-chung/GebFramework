@@ -4,8 +4,8 @@ class SearchBoxModule extends BaseModule{
 
 
     static content = {
-        searchBox(wait:true) { $('#gh-ac') }
-        searchButton(wait:true) { $('#gh-btn') }
+        searchBox(wait:true) { $('#twotabsearchtextbox') }
+        searchButton(wait:true) { $('#nav-search > form > div.nav-right > div > input') }
     }
 
     void enterSearchText(String searchText) {

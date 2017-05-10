@@ -7,14 +7,14 @@ class SearchResultsBarModule extends Module {
 
 
     static content = {
-        sortByDropDown(wait:true) {$('#DashSortByContainer')}
-        sortByOptions(wait:false) {$('#SortMenu')}
+        sortByDropDown(wait:true) {$('#sort')}
     }
 
     void selectSortByOption(String option) {
-        interact {moveToElement(sortByDropDown)}
-        sortByOptions.children().find { it.text() == option }.click()
+        sortByDropDown.value(option)
+
+//        sortByDropDown.click()
+//        sortByDropDown.find("option").find{ it.value() == option }.click()
+
     }
-
-
 }
