@@ -2,6 +2,7 @@ package specs
 
 import pages.HomePage
 import pages.SearchResultsNewExperiencePage
+import pages.SearchResultsPage
 
 class SearchSpec extends BaseSpec {
 
@@ -14,7 +15,8 @@ class SearchSpec extends BaseSpec {
         searchBox.enterSearchText("iPhone 6s")
         searchBox.searchButtonIsClicked()
 
-        /* this goes away after opting out ?
+        /*
+         //this goes away after opting out ?
         then: "Bob reaches the new shopping experience"
         at SearchResultsNewExperiencePage
 
@@ -22,8 +24,14 @@ class SearchSpec extends BaseSpec {
         viewAllResultsLinkIsClicked()
 */
 
-        then: "something"
-        println "test"
+        then: "Bob is the search results page"
+        at SearchResultsPage
+
+        when: "Bob selects his sort by option"
+        searchResultsBar.selectSortByOption("Lowest")
+
+        then: "need a then"
+        println "then"
     }
 
 }
