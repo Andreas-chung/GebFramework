@@ -6,24 +6,44 @@ import pages.SearchResultsPage
 
 class SearchSpec extends BaseSpec {
 
-    def "As a logged out user, search for products on the site" () {
+
+    def setup() {
+        //any test setup specific for this spec is done here. This would be good to set up data for these tests
+    }
+
+    def cleanup() {
+        //any clean up if needed
+    }
+
+    def "As a logged out user, search for #searchItem on the site"() {
 
         given: "Bob is on the amazon website"
         to HomePage
 
-        when: "Bob searches for iPhone 6s "
-        searchBox.enterSearchText("iPhone 6s")
+        when: "Bob searches for a #searchItem "
+        searchBox.enterSearchText(searchItem)
         searchBox.searchButtonIsClicked()
 
         then: "Bob is then taken to the search results page"
         at SearchResultsPage
+        isQueryParameterSet("keywords", searchKeyWord)
 
-        when: "Bob selects his sort order "
-        searchResultsBar.selectSortByOption("Price: Low to High")
+        when: "Bob sorts the results by #sortOrder"
+        searchResultsBar.selectSortByOption(sortOrder)
 
         then: "the search results page should be updated according to the sort order"
-        isQueryParameterSet("ref", "sr_st_price-asc-rank")
+        isQueryParameterSet("sort", sortOptionUrl)
 
+        //In the perfect world, we would have full control over the applicaiton under test, it would be running locally or on a build server,
+        // which we then can setup data and test the sorting logic. The sorting logic would probably be in another service which handles search requests.
+
+        where:
+        searchItem  | searchKeyWord | sortOrder              | sortOptionUrl
+        "iphone 6s" | "iphone+6s"   | "Featured"             | "featured-rank"
+        "iphone 6s" | "iphone+6s"   | "Price: Low to High"   | "price-asc-rank"
+        "iphone 6s" | "iphone+6s"   | "Price: High to Low"   | "price-desc-rank"
+        "iphone 6s" | "iphone+6s"   | "Avg. Customer Review" | "smooth-review-rank"
+        "iphone 6s" | "iphone+6s"   | "Newest Arrivals"      | "date-desc-rank"
     }
 
 }
