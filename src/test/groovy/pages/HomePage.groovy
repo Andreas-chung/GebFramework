@@ -1,7 +1,5 @@
 package pages
 
-import geb.Page
-import modules.HeaderModule
 import modules.SearchBoxModule
 
 class HomePage extends BasePage {
@@ -12,7 +10,6 @@ class HomePage extends BasePage {
     }
 
     static content = {
-        header { module HeaderModule }
         searchBox { module SearchBoxModule }
     }
 
