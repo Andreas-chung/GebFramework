@@ -3,6 +3,7 @@ package pages
 import geb.Page
 import modules.SearchBoxModule
 import modules.SearchResultsBarModule
+import modules.SideBarModule
 
 
 class SearchResultsPage extends BasePage {
@@ -15,6 +16,7 @@ class SearchResultsPage extends BasePage {
     static content = {
         searchBox { module SearchBoxModule }
         searchResultsBar { module SearchResultsBarModule }
+        sideBar { module SideBarModule }
     }
 
 }
