@@ -24,9 +24,10 @@ class SearchSpec extends BaseSpec {
         searchBox.enterSearchText(searchItem)
         searchBox.searchButtonIsClicked()
 
-        then: "Bob is then taken to the search results page"
+        then: "Bob is then taken to the search results page with search item"
         at SearchResultsPage
         isQueryParameterSet("keywords", searchKeyWord)
+        searchResultsBar.getSearchText().equals(searchItem)
 
         when: "Bob sorts the results by #sortOrder"
         searchResultsBar.selectSortByOption(sortOrder)
@@ -58,8 +59,6 @@ class SearchSpec extends BaseSpec {
 
         then: "Bob is then taken to the search results page"
         at SearchResultsPage
-        isQueryParameterSet("keywords", searchKeyWord)
-
 
         when: "apple brand is selected"
         sideBar.selectBrand(refineBy)

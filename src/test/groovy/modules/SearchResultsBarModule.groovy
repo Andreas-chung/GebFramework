@@ -8,6 +8,7 @@ class SearchResultsBarModule extends Module {
 
     static content = {
         sortByDropDown(wait:true) {$('#sort')}
+        searchtext(wait:true) { $('#bcKwText') }
         brandName(wait:true) { $('#s-result-count > span > a:nth-child(3)') } //better with id of course
     }
 
@@ -17,5 +18,9 @@ class SearchResultsBarModule extends Module {
 
     String getBrandText() {
         brandName.text()
+    }
+
+    String getSearchText() {
+        searchtext.text().replace('"', '')
     }
 }
